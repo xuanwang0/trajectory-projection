@@ -33,6 +33,8 @@ X_c_i = inverse(T_w_c[i]) * T_w_c[j] * X_c_j
 
 ## 演示视频
 
+演示展示相机原始画面、未来轨迹投影，以及轨迹与可通行区域掩码的叠加效果。它说明如何利用位姿几何线索辅助大规模可通行区域标注，为后续模型训练准备数据。
+
 演示链接：[在线播放](https://xuanwang0.github.io/trajectory-projection/)。
 
 ## 目录
