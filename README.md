@@ -22,28 +22,8 @@ trajectory_projection/
 ├── requirements.txt
 ├── .gitignore
 ├── project_future_trajectory.py          # 单张 KITTI 图像投影
-├── project_future_trajectory_sequence.py # KITTI / TUM 双目序列投影
-└── examples/tum_stereo/                  # 可直接运行的合成示例
+└── project_future_trajectory_sequence.py # KITTI / TUM 双目序列投影
 ```
-
-## 示例数据
-
-`examples/tum_stereo/` 包含一组小型合成样例：鱼眼相机标定 YAML、8 帧 TUM 格式位姿，以及对应的 8 张演示图像。它可以直接用于熟悉输入文件结构和命令行参数。图像、标定和位姿均为合成数据，**不能用于真实相机标定或精度评估**。
-
-从项目根目录运行整段示例：
-
-```bash
-python project_future_trajectory_sequence.py \
-  --format tum-stereo \
-  --dataset examples/tum_stereo \
-  --pose-frame camera \
-  --point center --future 5 --stride 1 \
-  --output-dir outputs/demo_frames \
-  --video outputs/demo.mp4 \
-  --traj-out outputs/demo.csv
-```
-
-样例中的 `CameraTrajectory.txt` 每行格式是 `timestamp tx ty tz qx qy qz qw`，与对应图像文件名中的纳秒时间戳一致。替换成真实数据时，保留目录结构并换入自己的图像、轨迹和标定文件；真实标定参数要来自相机标定结果，轨迹的坐标系和单位也必须与图像及外参匹配。
 
 ## 部署
 
