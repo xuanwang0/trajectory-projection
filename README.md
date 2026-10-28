@@ -33,15 +33,7 @@ X_c_i = inverse(T_w_c[i]) * T_w_c[j] * X_c_j
 
 ## 演示视频
 
-在浏览器中直接播放：[打开 GitHub Pages 演示页](https://xuanwang0.github.io/trajectory-projection/)。
-
-以下视频取自同一段 cam0 关键帧片段，用于对比原始画面、未来轨迹投影和可通行区域掩码：
-
-- [原始画面](media/raw_excerpt.mp4)
-- [未来轨迹投影](media/trajectory_excerpt.mp4)
-- [轨迹与可通行区域掩码](media/trajectory_mask_excerpt.mp4)：紫色为掩码，黄橙色为投影轨迹。
-
-每段约 24 秒，包含 480 个对齐关键帧，编码尺寸为 960 × 600、20 FPS。它们从约 112.6 秒的连续数据中抽帧制作，展示速度约为原始片段的 4.7 倍。原始数据为 1280 × 800、44 FPS；这些仓库视频是便于查看和下载的展示片段，不是完整数据序列。掩码取自该序列已有的 `labeled/masks` 文件。
+演示链接：[在线播放](https://xuanwang0.github.io/trajectory-projection/)。
 
 ## 目录
 
