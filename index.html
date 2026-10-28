@@ -56,7 +56,7 @@
     <p class="intro">同一段真实双目相机数据的三种视图：原始画面、投影到当前图像的未来轨迹，以及轨迹与可通行区域掩码的叠加结果。轨迹几何来自相机位姿序列，掩码取自该数据集已有标注。</p>
     <div class="meta" aria-label="数据说明">
       <span class="tag">FaysTech FS-VI-S80M</span>
-      <span class="tag">cam0 · 20260609_03</span>
+      <span class="tag">cam0 · 双目惯性序列</span>
       <span class="tag">480 个关键帧 · 约 24 秒 · 约 4.7× 加速</span>
       <span class="tag">960 × 600 · 20 FPS 展示片段</span>
     </div>
@@ -66,8 +66,8 @@
         <h2><span class="dot"></span>原始相机画面</h2>
         <p>未经轨迹或掩码叠加的 cam0 灰度画面。</p>
         <video controls playsinline preload="metadata">
-          <source src="media/20260609_03_raw_excerpt.mp4" type="video/mp4">
-          当前浏览器无法播放此视频，请使用 <a href="media/20260609_03_raw_excerpt.mp4">直接下载</a>。
+          <source src="media/raw_excerpt.mp4" type="video/mp4">
+          当前浏览器无法播放此视频，请使用 <a href="media/raw_excerpt.mp4">直接下载</a>。
         </video>
       </article>
 
@@ -75,8 +75,8 @@
         <h2><span class="dot path"></span>未来轨迹投影</h2>
         <p>从关键帧位姿推算后续轨迹采样点，并投影到当前图像。</p>
         <video controls playsinline preload="metadata">
-          <source src="media/20260609_03_trajectory_excerpt.mp4" type="video/mp4">
-          当前浏览器无法播放此视频，请使用 <a href="media/20260609_03_trajectory_excerpt.mp4">直接下载</a>。
+          <source src="media/trajectory_excerpt.mp4" type="video/mp4">
+          当前浏览器无法播放此视频，请使用 <a href="media/trajectory_excerpt.mp4">直接下载</a>。
         </video>
       </article>
 
@@ -84,8 +84,8 @@
         <h2><span class="dot mask"></span>轨迹与可通行区域掩码</h2>
         <p>把紫色可通行区域掩码与黄橙色未来轨迹放在同一画面，展示几何线索与像素级标签的对应关系。</p>
         <video controls playsinline preload="metadata">
-          <source src="media/20260609_03_trajectory_mask_excerpt.mp4" type="video/mp4">
-          当前浏览器无法播放此视频，请使用 <a href="media/20260609_03_trajectory_mask_excerpt.mp4">直接下载</a>。
+          <source src="media/trajectory_mask_excerpt.mp4" type="video/mp4">
+          当前浏览器无法播放此视频，请使用 <a href="media/trajectory_mask_excerpt.mp4">直接下载</a>。
         </video>
         <div class="legend"><span><i class="swatch"></i>可通行区域掩码</span><span><i class="swatch path"></i>投影轨迹</span></div>
       </article>
