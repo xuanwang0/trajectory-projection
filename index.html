@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#101827">
+  <meta name="description" content="FaysTech FS-VI-S80M 双目相机上的轨迹投影与可通行区域掩码演示。">
+  <title>轨迹投影演示 · Trajectory Projection</title>
+  <style>
+    :root {
+      color-scheme: dark;
+      --page: #0b1120;
+      --panel: #121c2e;
+      --panel-border: #26354c;
+      --text: #edf3fb;
+      --muted: #a8b6c9;
+      --cyan: #66e3d0;
+      --violet: #df74ef;
+      --gold: #ffc95c;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      background: radial-gradient(ellipse at 12% 0%, #182b3d 0, transparent 42%), var(--page);
+      color: var(--text);
+      font: 16px/1.6 Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    }
+    main { width: min(1180px, calc(100% - 36px)); margin: 0 auto; padding: 64px 0 52px; }
+    .eyebrow { color: var(--cyan); font-size: .78rem; font-weight: 750; letter-spacing: .16em; text-transform: uppercase; }
+    h1 { margin: 12px 0 10px; font-size: clamp(2rem, 5vw, 3.6rem); line-height: 1.08; letter-spacing: -.045em; }
+    .intro { max-width: 760px; color: var(--muted); font-size: 1.04rem; }
+    .meta { display: flex; flex-wrap: wrap; gap: 9px; margin: 22px 0 34px; }
+    .tag { border: 1px solid var(--panel-border); border-radius: 999px; padding: 5px 11px; color: #d4dfed; background: #111b2b; font-size: .82rem; }
+    .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 480px), 1fr)); gap: 18px; }
+    .card { min-width: 0; padding: 15px; border: 1px solid var(--panel-border); border-radius: 18px; background: linear-gradient(145deg, #152136, var(--panel)); box-shadow: 0 18px 55px #0003; }
+    .card h2 { display: flex; align-items: center; gap: 10px; margin: 0 0 5px; font-size: 1.08rem; }
+    .card p { min-height: 3em; margin: 0 0 12px; color: var(--muted); font-size: .9rem; }
+    .dot { width: 9px; height: 9px; border-radius: 50%; background: var(--cyan); box-shadow: 0 0 14px currentColor; }
+    .dot.path { background: var(--gold); }
+    .dot.mask { background: var(--violet); }
+    video { display: block; width: 100%; aspect-ratio: 16 / 10; border-radius: 11px; background: #05080e; object-fit: contain; }
+    .legend { display: flex; flex-wrap: wrap; gap: 16px; margin-top: 12px; color: var(--muted); font-size: .82rem; }
+    .legend span { display: inline-flex; align-items: center; gap: 7px; }
+    .swatch { width: 11px; height: 11px; border-radius: 3px; background: var(--violet); }
+    .swatch.path { border-radius: 50%; background: var(--gold); }
+    footer { margin-top: 30px; padding-top: 18px; border-top: 1px solid var(--panel-border); color: var(--muted); font-size: .85rem; }
+    a { color: var(--cyan); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    @media (max-width: 600px) { main { padding-top: 38px; } .card { padding: 12px; } }
+  </style>
+</head>
+<body>
+  <main>
+    <div class="eyebrow">Trajectory Projection · Visual Demo</div>
+    <h1>从相机画面到可通行区域标注</h1>
+    <p class="intro">同一段真实双目相机数据的三种视图：原始画面、投影到当前图像的未来轨迹，以及轨迹与可通行区域掩码的叠加结果。轨迹几何来自相机位姿序列，掩码取自该数据集已有标注。</p>
+    <div class="meta" aria-label="数据说明">
+      <span class="tag">FaysTech FS-VI-S80M</span>
+      <span class="tag">cam0 · 20260609_03</span>
+      <span class="tag">120 个关键帧 · 约 24 秒</span>
+      <span class="tag">960 × 600 · 5 FPS 展示片段</span>
+    </div>
+
+    <section class="grid" aria-label="演示视频">
+      <article class="card">
+        <h2><span class="dot"></span>原始相机画面</h2>
+        <p>未经轨迹或掩码叠加的 cam0 灰度画面。</p>
+        <video controls playsinline preload="metadata">
+          <source src="media/20260609_03_raw_excerpt.mp4" type="video/mp4">
+          当前浏览器无法播放此视频，请使用 <a href="media/20260609_03_raw_excerpt.mp4">直接下载</a>。
+        </video>
+      </article>
+
+      <article class="card">
+        <h2><span class="dot path"></span>未来轨迹投影</h2>
+        <p>从关键帧位姿推算后续轨迹采样点，并投影到当前图像。</p>
+        <video controls playsinline preload="metadata">
+          <source src="media/20260609_03_trajectory_excerpt.mp4" type="video/mp4">
+          当前浏览器无法播放此视频，请使用 <a href="media/20260609_03_trajectory_excerpt.mp4">直接下载</a>。
+        </video>
+      </article>
+
+      <article class="card">
+        <h2><span class="dot mask"></span>轨迹与可通行区域掩码</h2>
+        <p>把紫色可通行区域掩码与黄橙色未来轨迹放在同一画面，展示几何线索与像素级标签的对应关系。</p>
+        <video controls playsinline preload="metadata">
+          <source src="media/20260609_03_trajectory_mask_excerpt.mp4" type="video/mp4">
+          当前浏览器无法播放此视频，请使用 <a href="media/20260609_03_trajectory_mask_excerpt.mp4">直接下载</a>。
+        </video>
+        <div class="legend"><span><i class="swatch"></i>可通行区域掩码</span><span><i class="swatch path"></i>投影轨迹</span></div>
+      </article>
+    </section>
+
+    <footer>
+      视频是为 GitHub Pages 展示而裁取并重新编码的片段，源数据为 1280 × 800、44 FPS。查看算法、输入格式与部署说明：<a href="https://github.com/xuanwang0/trajectory-projection">trajectory-projection 仓库</a>。
+    </footer>
+  </main>
+</body>
+</html>

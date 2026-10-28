@@ -33,6 +33,8 @@ X_c_i = inverse(T_w_c[i]) * T_w_c[j] * X_c_j
 
 ## 演示视频
 
+在浏览器中直接播放：[打开 GitHub Pages 演示页](https://xuanwang0.github.io/trajectory-projection/)。
+
 以下视频取自数据序列 `20260609_03` 的同一段 cam0 关键帧片段，用于对比原始画面、未来轨迹投影和可通行区域掩码：
 
 - [原始画面](media/20260609_03_raw_excerpt.mp4)
@@ -46,6 +48,7 @@ X_c_i = inverse(T_w_c[i]) * T_w_c[j] * X_c_j
 ```text
 trajectory_projection/
 ├── README.md
+├── index.html                              # GitHub Pages 视频播放页
 ├── requirements.txt
 ├── .gitignore
 ├── project_future_trajectory.py          # 单张 KITTI 图像投影
