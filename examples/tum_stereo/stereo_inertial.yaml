@@ -1,0 +1,22 @@
+%YAML:1.0
+# Synthetic example calibration for the included demo images; not a real camera calibration.
+Camera.type: "KannalaBrandt8"
+Camera.width: 640
+Camera.height: 480
+Camera.fps: 10.0
+Camera1.fx: 250.0
+Camera1.fy: 250.0
+Camera1.cx: 320.0
+Camera1.cy: 240.0
+Camera1.k1: 0.0
+Camera1.k2: 0.0
+Camera1.k3: 0.0
+Camera1.k4: 0.0
+IMU.T_b_c1: !!opencv-matrix
+  rows: 4
+  cols: 4
+  dt: f
+  data: [1.0, 0.0, 0.0, 0.0,
+         0.0, 1.0, 0.0, 0.0,
+         0.0, 0.0, 1.0, 0.0,
+         0.0, 0.0, 0.0, 1.0]
